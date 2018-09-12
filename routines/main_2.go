@@ -8,6 +8,7 @@ import (
 
 func main() {
 
+	// simple go routine
 	go ProcessUsers()
 }
 

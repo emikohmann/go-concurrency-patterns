@@ -20,7 +20,9 @@ func ProcessUsers() {
 
 	for true {
 
-		ProcessUser(i)
+		go ProcessUser(i)
+
+    	time.Sleep(time.Duration(200 + rand.Intn(300)) * time.Millisecond)
 
 		i++
 	}
@@ -29,6 +31,4 @@ func ProcessUsers() {
 func ProcessUser(userID int) {
 
     fmt.Println("I'm processing user", userID)
-
-    time.Sleep(time.Duration(200 + rand.Intn(300)) * time.Millisecond)
 }
