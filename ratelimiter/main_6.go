@@ -37,6 +37,7 @@ func (b *batch) process(maxRate int) {
 
 	for _, elem := range *b {
 
+		// add any message to rate limiter
 		rateLimiter <- true
 	
 		// execute with go routines
