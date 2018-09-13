@@ -23,6 +23,6 @@ func create(n int) *batch {
 
 func main() {
 
-	// show 5 docs batch
+	// show 10 docs batch
 	fmt.Println(*create(10))
 }

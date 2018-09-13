@@ -43,6 +43,6 @@ func processElem(elem string) {
 
 func main() {
 
-	// process 5 docs batch
+	// process 10 docs batch
 	create(10).process()
 }

@@ -65,6 +65,7 @@ func processElem(elem string, wg *sync.WaitGroup, rl <-chan bool) {
 
 func main() {
 
-	// process 5 docs batch
+	// process 10 docs batch
+	// adding rate limit by arg
 	create(10).process(3)
 }
