@@ -30,6 +30,8 @@ func (b *batch) process() {
 
 	// use waitgroup for execute all go routines
 	var wg sync.WaitGroup
+
+	// set go routines count
 	wg.Add(len(*b))
 
 	for _, elem := range *b {
@@ -38,11 +40,13 @@ func (b *batch) process() {
 		go processElem(elem, &wg)
 	}
 
+	// wait for all go routines
 	wg.Wait()
 }
 
 // processElem process one batch element
 func processElem(elem string, wg *sync.WaitGroup) {
+	// decrement waitgroup counter
 	defer wg.Done()
 
 	fmt.Println("Processing element", elem)

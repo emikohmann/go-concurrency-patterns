@@ -30,6 +30,8 @@ func (b *batch) process(maxRate int) {
 
 	// use waitgroup for execute all go routines
 	var wg sync.WaitGroup
+
+	// set go routines count
 	wg.Add(len(*b))
 
 	// create rateLimiter buffered channel
@@ -44,17 +46,20 @@ func (b *batch) process(maxRate int) {
 		go processElem(elem, &wg, rateLimiter)
 	}
 
+	// wait for all go routines
 	wg.Wait()
 }
 
 // processElem process one batch element
 func processElem(elem string, wg *sync.WaitGroup, rl <-chan bool) {
+	// decrement waitgroup counter
 	defer wg.Done()
 
 	fmt.Println("Processing element", elem)
 
 	time.Sleep(time.Duration(500 + rand.Intn(500)) * time.Millisecond)
 
+	// free a place
 	<- rl
 }
 
