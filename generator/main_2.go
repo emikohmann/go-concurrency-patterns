@@ -8,10 +8,10 @@ import (
 
 func main() {
 	// Call a generator
-	fravega := LoadDataForUser("fravega")
+	fravega := loadDataForUser("fravega")
 
 	// Call new generator
-	garbarino := LoadDataForUser("garbarino")
+	garbarino := loadDataForUser("garbarino")
 
 	go func() {
 
@@ -26,7 +26,7 @@ func main() {
 }
 
 // Generator returns the channel
-func LoadDataForUser(username string) chan string {
+func loadDataForUser(username string) chan string {
 
 	c := make(chan string)
 

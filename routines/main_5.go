@@ -9,19 +9,19 @@ import (
 func main() {
 
 	// simple go routine
-	go ProcessUsers()
+	go processUsers()
 
 	time.Sleep(3 * time.Second)
 }
 
-func ProcessUsers() {
+func processUsers() {
 
 	i := 0
 
 	for true {
 
 		// ProcessUser execution is non blocking
-		go ProcessUser(i)
+		go processUser(i)
 
 		time.Sleep(time.Duration(200 + rand.Intn(300)) * time.Millisecond)
 
@@ -29,7 +29,7 @@ func ProcessUsers() {
 	}
 }
 
-func ProcessUser(userID int) {
+func processUser(userID int) {
 
 	fmt.Println("I'm processing user", userID)
 	

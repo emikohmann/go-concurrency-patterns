@@ -8,9 +8,9 @@ import (
 
 func main() {
 	// Call a fan in function
-	c := FanInMultiplex(
-		LoadDataForUser("fravega"),
-		LoadDataForUser("garbarino"),
+	c := fanInMultiplex(
+		loadDataForUser("fravega"),
+		loadDataForUser("garbarino"),
 	)
 
 	go func() {
@@ -24,8 +24,8 @@ func main() {
 	time.Sleep(3 * time.Second)
 }
 
-// FanInMultiplex intercala la salida de ambos canales
-func FanInMultiplex(input1, input2 chan string) chan string {
+// fanInMultiplex intercala la salida de ambos canales
+func fanInMultiplex(input1, input2 chan string) chan string {
 	c := make(chan string)
 
 	go func() { for {c <- <- input1} } ()
@@ -35,7 +35,7 @@ func FanInMultiplex(input1, input2 chan string) chan string {
 }
 
 // Generator returns the channel
-func LoadDataForUser(username string) chan string {
+func loadDataForUser(username string) chan string {
 
 	c := make(chan string)
 

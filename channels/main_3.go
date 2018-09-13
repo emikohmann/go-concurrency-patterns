@@ -9,12 +9,12 @@ import (
 func main() {
 
 	// simple go routine
-	go ProcessUsers()
+	go processUsers()
 
 	time.Sleep(3 * time.Second)
 }
 
-func ProcessUsers() {
+func processUsers() {
 	i := 0
 
 	// conventional channel
@@ -29,7 +29,7 @@ func ProcessUsers() {
 	// go routines launcher
 	for true {
 
-		go ProcessUser(i, ch)
+		go processUser(i, ch)
 
 		time.Sleep(time.Duration(200 + rand.Intn(300)) * time.Millisecond)
 
@@ -37,7 +37,7 @@ func ProcessUsers() {
 	}
 }
 
-func ProcessUser(userID int, ch chan string) {
+func processUser(userID int, ch chan string) {
 
 	// send data to blocking channel
 	ch <- fmt.Sprintf("I'm processing user %d", userID)
