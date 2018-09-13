@@ -25,7 +25,7 @@ func ProcessUsers() {
 		for true {
 
 			// receive data from channel
-			fmt.Println("Go routine say ", <- ch)
+			fmt.Println("Go routine say:", <- ch)
 		}	
 	} ()
 

@@ -17,6 +17,7 @@ func main() {
 func ProcessUsers() {
 	i := 0
 
+	// buffered non blocking channel
 	ch := make(chan string, 4)
 
 	// control go routine

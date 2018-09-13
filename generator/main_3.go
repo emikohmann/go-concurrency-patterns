@@ -17,13 +17,14 @@ func main() {
 
 		for true {
 
-			fmt.Println("fan in say", <- c)
+			fmt.Println("Generators fan in say:", <- c)
 		}	
 	} ()
 
 	time.Sleep(3 * time.Second)
 }
 
+// FanInMultiplex intercala la salida de ambos canales
 func FanInMultiplex(input1, input2 chan string) chan string {
 	c := make(chan string)
 

@@ -10,15 +10,15 @@ func main() {
 	// Call a generator
 	fravega := LoadDataForUser("fravega")
 
-	// Call another generator
+	// Call new generator
 	garbarino := LoadDataForUser("garbarino")
 
 	go func() {
 
 		for true {
 
-			fmt.Println("fravega say", <- fravega)
-			fmt.Println("garbarino say", <- garbarino)
+			fmt.Println("Generator say:", <- fravega)
+			fmt.Println("Generator say:", <- garbarino)
 		}	
 	} ()
 

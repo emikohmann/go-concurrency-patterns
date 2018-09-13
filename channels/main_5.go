@@ -17,6 +17,7 @@ func main() {
 func ProcessUsers() {
 	i := 0
 
+	// buffered channel
 	ch := make(chan string, 4)
 
 	// control go routine

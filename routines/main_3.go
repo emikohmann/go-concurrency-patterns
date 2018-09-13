@@ -11,7 +11,8 @@ func main() {
 	// simple go routine
 	go ProcessUsers()
 
-	time.Sleep(3 * time.Second)
+	// add sleep
+	time.Sleep(5 * time.Second)
 }
 
 func ProcessUsers() {

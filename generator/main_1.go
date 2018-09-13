@@ -14,7 +14,7 @@ func main() {
 
 		for true {
 
-			fmt.Println("fravega say", <- fravega)
+			fmt.Println("Generator say:", <- fravega)
 		}	
 	} ()
 

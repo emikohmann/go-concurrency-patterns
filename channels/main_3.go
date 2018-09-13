@@ -17,6 +17,7 @@ func main() {
 func ProcessUsers() {
 	i := 0
 
+	// conventional channel
 	ch := make(chan string)
 
 	// control go routine

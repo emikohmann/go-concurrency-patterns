@@ -23,16 +23,18 @@ func main() {
 
 		for true {
 
-			fmt.Println("fan in say", <- c)
+			fmt.Println("Generators fan in say:", <- c)
 		}	
 	} ()
 
 	time.Sleep(3 * time.Second)
 }
 
+// FanInMultiplex intercala la salida de n canales
 func FanInMultiplex(inputs ...chan string) chan string {
 	c := make(chan string)
 
+	// inputs es un parámetro variádico
 	for _, in := range inputs {
 		go func(current chan string) {
 			for {

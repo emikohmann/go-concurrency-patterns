@@ -20,7 +20,8 @@ func ProcessUsers() {
 
 	for true {
 
-		ProcessUser(i)
+		// ProcessUser execution is non blocking
+		go ProcessUser(i)
 
 		time.Sleep(time.Duration(200 + rand.Intn(300)) * time.Millisecond)
 
