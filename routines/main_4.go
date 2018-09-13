@@ -22,7 +22,7 @@ func ProcessUsers() {
 
 		go ProcessUser(i)
 
-    	time.Sleep(time.Duration(200 + rand.Intn(300)) * time.Millisecond)
+		time.Sleep(time.Duration(200 + rand.Intn(300)) * time.Millisecond)
 
 		i++
 	}
