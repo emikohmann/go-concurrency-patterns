@@ -64,6 +64,7 @@ func processElem(elem string, wg *sync.WaitGroup, rl <-chan bool) {
 }
 
 func main() {
+    rand.Seed(time.Now().UTC().UnixNano())
 
 	// process 10 docs batch
 	for i := 1; i < 11; i++ {

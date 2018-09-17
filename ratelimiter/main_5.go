@@ -60,10 +60,13 @@ func processElem(elem string, wg *sync.WaitGroup, rl <-chan bool) {
 	time.Sleep(time.Duration(500 + rand.Intn(500)) * time.Millisecond)
 
 	// free a place
+
+	fmt.Println("\tElement finished", elem)
 	<- rl
 }
 
 func main() {
+    rand.Seed(time.Now().UTC().UnixNano())
 
 	// process 10 docs batch
 	// adding rate limit by arg

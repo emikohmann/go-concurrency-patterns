@@ -9,7 +9,17 @@ import (
 func main() {
     rand.Seed(time.Now().UTC().UnixNano())
 
-	g := GetData("fravega")
+	ch1 := make(chan string)
+	go func() {
+		time.Sleep(time.Duration(750 + rand.Intn(500)) * time.Millisecond)
+		ch1 <- "I'm CH1!"
+	} ()
+
+	ch2 := make(chan string)
+	go func() {
+		time.Sleep(time.Duration(750 + rand.Intn(500)) * time.Millisecond)
+		ch2 <- "I'm CH2!"
+	} ()
 
 	// Wait for a communication
 	select {
@@ -18,24 +28,14 @@ func main() {
 
 		fmt.Println("Timeout")
 
-	case msg := <- g:
+	case msg1 := <- ch1:
 
-		fmt.Println(msg)
+		fmt.Println(msg1)
+
+	case msg2 := <- ch2:
+
+		fmt.Println(msg2)
 	}
 
 	fmt.Println("Program finished")
-}
-
-// Get data returns the channel
-func GetData(user string) chan string {
-	ch := make(chan string)
-
-	go func() {
-
-		time.Sleep(time.Duration(750 + rand.Intn(500)) * time.Millisecond)
-
-		ch <- fmt.Sprintf("%s is done", user)
-	} ()
-
-	return ch
 }

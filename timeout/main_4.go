@@ -11,12 +11,14 @@ func main() {
 
 	g := GetData("fravega")
 
+	timeout := time.After(5000 * time.Millisecond)
+
 	FOR:
 	for {
 		// Wait for a communication
 		select {
 
-		case <- time.After(1000 * time.Millisecond):
+		case <- timeout:
 
 			fmt.Println("Timeout")
 			break FOR

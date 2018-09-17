@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	n := 100000
+	n := 10
 
 	leftmost := make(chan int)
 

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 type batch []string
@@ -22,6 +23,7 @@ func create(n int) *batch {
 }
 
 func main() {
+    rand.Seed(time.Now().UTC().UnixNano())
 
 	// show 10 docs batch
 	fmt.Println(*create(10))

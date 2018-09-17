@@ -43,6 +43,7 @@ func processElem(elem string) {
 }
 
 func main() {
+    rand.Seed(time.Now().UTC().UnixNano())
 
 	// process 10 docs batch
 	create(10).process()
